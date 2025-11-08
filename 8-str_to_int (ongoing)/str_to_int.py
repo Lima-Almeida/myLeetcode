@@ -1,0 +1,4 @@
+
+
+def myAtoi(s):
+    return
