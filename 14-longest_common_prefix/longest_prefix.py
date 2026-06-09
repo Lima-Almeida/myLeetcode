@@ -1,25 +1,24 @@
-strs = ["flower","flower","flower","flower"]
+strs = ["ab", "a"]
 
 
 def longestCommonPrefix(strs):
 
-    counter = 0
+    strs.sort()
+
+    first = strs[0]
+    last = strs[-1]
+
     prefix = []
-
+    j = 0
     while True:
-        try:
-            letter_ref = list(strs[0])[counter]
-        except IndexError:
+        if j >= len(first) or j >= len(last):
             break
-
-        for k in strs:
-            word = list(k)
-            letter = word[counter]
-            if letter != letter_ref:
-                return "".join(prefix)
-        prefix.append(letter_ref)
-        counter += 1
-
+        if first[j] != last[j]:
+            break
+        else:
+            prefix.append(first[j])
+        j += 1
+    
     return "".join(prefix)
         
 print(longestCommonPrefix(strs))
